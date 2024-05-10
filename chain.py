@@ -6,12 +6,14 @@ from langchain_community.vectorstores import FAISS
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
-from langchain_openai import ChatOpenAI
+# from langchain_openai import ChatOpenAI
 from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
+# load .env
 load_dotenv()
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+print(OPENAI_API_KEY)
 
 # template = """"당신의 이름은 지니 입니다. 당신은 대한민국의 도로명교육 전문가 입니다. 
 # 당신은 초등학생들에게 대한민국의 도로명 체계에 대해 가르쳐야 합니다. 당신은 초등학생들이 이해하기 쉽게 알려줘야 합니다. 

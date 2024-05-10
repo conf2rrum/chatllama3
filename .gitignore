@@ -2,4 +2,4 @@ __pycache__/
 documents/
 models/
 .env
-
+.venv/
