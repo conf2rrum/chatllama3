@@ -1,11 +1,12 @@
+from chain import rag_chain
 from fastapi import FastAPI
 from langserve import add_routes
-from chain import rag_chain
+
 
 app = FastAPI(
     title="LangChain Server",
     version="1.0",
-    description="A simple API server using Langchain's Runnable interfaces"
+    description="A simple API server using Langchain's Runnable interfaces",
 )
 
 add_routes(
@@ -17,4 +18,4 @@ add_routes(
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="localhost", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
