@@ -1,21 +1,29 @@
-from chain import rag_chain
+from chain import chain 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from langserve import add_routes
 
 
-app = FastAPI(
-    title="LangChain Server",
-    version="1.0",
-    description="A simple API server using Langchain's Runnable interfaces",
+app = FastAPI()
+
+# Set all CORS enabled origins
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+    expose_headers=["*"],
 )
 
 add_routes(
     app,
-    rag_chain,
+    chain,
     path="/ask"
 )
+
 
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="localhost", port=8000)
