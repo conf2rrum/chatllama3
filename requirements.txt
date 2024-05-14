@@ -5,3 +5,6 @@ langchain-openai
 langserve[all]
 faiss-cpu
 pypdf
+flask
+flask-cors
+celery
